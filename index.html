@@ -115,12 +115,35 @@
     padding:64px 0 56px;
     text-align:center;
   }
+  @media (min-width:960px){ .hero{padding:88px 0 96px;} }
+
+  .hero .wrap{position:relative;}
+
   .hero-sprig-left, .hero-sprig-right{
     position:absolute; top:8%; width:120px; opacity:0.4;
+    pointer-events:none;
   }
   .hero-sprig-left{left:-24px; transform:rotate(-8deg);}
   .hero-sprig-right{right:-24px; transform:scaleX(-1) rotate(-8deg);}
   @media (max-width:640px){ .hero-sprig-left, .hero-sprig-right{width:74px;} }
+  @media (min-width:960px){
+    .hero-sprig-left, .hero-sprig-right{top:2%; width:100px; opacity:0.3;}
+    .hero-sprig-left{left:-8px;}
+    .hero-sprig-right{right:-8px;}
+  }
+
+  .hero-grid{position:relative; z-index:1;}
+  @media (min-width:960px){
+    .hero-grid{
+      display:grid; grid-template-columns:1.05fr 0.95fr; align-items:center;
+      gap:48px; text-align:left;
+    }
+    .hero-copy{max-width:520px;}
+    .hero-eyebrow, .hero-actions{justify-content:flex-start;}
+    .hero-actions{margin:0;}
+    .hero-text{margin-left:0; margin-right:0;}
+    .hero-emblem-col{display:flex; justify-content:center;}
+  }
 
   .hero-eyebrow{
     display:inline-block; font-size:0.78rem; color:var(--gold);
@@ -153,9 +176,12 @@
     margin:44px auto 0; width:220px; height:220px; position:relative;
   }
   @media (min-width:641px){ .hero-emblem{width:260px; height:260px;} }
+  @media (min-width:960px){ .hero-emblem{width:300px; height:300px; margin:0;} }
+
 
   /* ---------- Section shells ---------- */
   section{padding:64px 0;}
+  @media (min-width:960px){ section{padding:96px 0;} }
   .section-cream-alt{background:var(--cream-deep);}
   .section-forest{background:var(--forest-deep); color:#EFE7D2;}
   .section-forest h2, .section-forest h3{color:#F4EBD3;}
@@ -366,20 +392,26 @@
   </svg>
 
   <div class="wrap">
-    <span class="hero-eyebrow">Traditional Homemade Delights</span>
-    <h1>House of Thekua</h1>
-    <p class="hero-sub">Homemade Goodness. Traditional Taste.</p>
-    <p class="hero-text">Authentic traditional homemade delights, freshly made with love.</p>
-    <div class="hero-actions">
-      <a href="#" class="btn btn-primary btn-full" id="heroWhatsappBtn">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38a9.9 9.9 0 0 0 4.76 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.03c-.24.68-1.4 1.3-1.94 1.38-.5.08-1.13.11-1.82-.12-.42-.14-.96-.32-1.65-.63-2.9-1.25-4.79-4.17-4.93-4.36-.14-.19-1.18-1.57-1.18-3 0-1.42.75-2.12 1.02-2.41.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.65.5.24.58.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.15.31-.29.48-.15.17-.3.38-.43.51-.14.14-.29.29-.13.57.17.29.75 1.24 1.61 2.01 1.11 1 2.05 1.31 2.33 1.46.29.14.46.12.63-.07.17-.19.72-.84.92-1.13.19-.29.39-.24.65-.14.27.1 1.68.79 1.97.94.29.14.48.22.55.34.08.13.08.72-.16 1.4Z"/></svg>
-        Order on WhatsApp
-      </a>
-      <a href="#products" class="btn btn-outline btn-full">View Products</a>
-    </div>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="hero-eyebrow">Traditional Homemade Delights</span>
+        <h1>House of Thekua</h1>
+        <p class="hero-sub">Homemade Goodness. Traditional Taste.</p>
+        <p class="hero-text">Authentic traditional homemade delights, freshly made with love.</p>
+        <div class="hero-actions">
+          <a href="#" class="btn btn-primary btn-full" id="heroWhatsappBtn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38a9.9 9.9 0 0 0 4.76 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.03c-.24.68-1.4 1.3-1.94 1.38-.5.08-1.13.11-1.82-.12-.42-.14-.96-.32-1.65-.63-2.9-1.25-4.79-4.17-4.93-4.36-.14-.19-1.18-1.57-1.18-3 0-1.42.75-2.12 1.02-2.41.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.65.5.24.58.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.15.31-.29.48-.15.17-.3.38-.43.51-.14.14-.29.29-.13.57.17.29.75 1.24 1.61 2.01 1.11 1 2.05 1.31 2.33 1.46.29.14.46.12.63-.07.17-.19.72-.84.92-1.13.19-.29.39-.24.65-.14.27.1 1.68.79 1.97.94.29.14.48.22.55.34.08.13.08.72-.16 1.4Z"/></svg>
+            Order on WhatsApp
+          </a>
+          <a href="#products" class="btn btn-outline btn-full">View Products</a>
+        </div>
+      </div>
 
-    <div class="hero-emblem">
-      <img src="IMG-20260915-WA0006.png" alt="House of Thekua — Homemade Happiness" style="width:100%; height:100%; object-fit:contain;">
+      <div class="hero-emblem-col">
+        <div class="hero-emblem">
+          <img src="IMG-20260915-WA0006.png" alt="House of Thekua — Homemade Happiness" style="width:100%; height:100%; object-fit:contain;">
+        </div>
+      </div>
     </div>
   </div>
 </section>
